@@ -1,10 +1,7 @@
-.grid-test {
-  background-image: linear-gradient(to bottom, tomato, rgb(255, 58, 58));
-}
+
 
 .row {
   max-width: $grid-width;
-  background-color: #eee;
   margin: 0 auto;
   
   &:not(:last-child) {
@@ -14,7 +11,6 @@
   @include clearfix;
 
   [class^="col-"] {
-    background-color: lime;
     float: left;
 
     &:not(:last-child) {
