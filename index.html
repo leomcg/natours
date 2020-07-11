@@ -5,14 +5,35 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
-
         <link rel="stylesheet" href="css/icon-font.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="shortcut icon" type="image/png" href="img/favicon.png">
         
         <title>Natours | Exciting tours for adventurous people</title>
+
+        <script>
+          function closeNav() { document.getElementById("navi-toggle").checked = false; }
+        </script>
     </head>
     <body>
+        <div class="navigation">
+          <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+          <label for="navi-toggle" class="navigation__button">
+            <span class="navigation__icon">&nbsp;</span>
+          </label>
+
+          <div class="navigation__background">&nbsp;</div>
+
+          <nav class="navigation__nav">
+            <ul class="navigation__list">
+              <li class="navigation__item"><a href="#about" class="navigation__link" onclick="closeNav()"><span>01</span> About Natours</a></li>
+              <li class="navigation__item"><a href="#features" class="navigation__link" onclick="closeNav()"><span>02</span> Your benefits</a></li>
+              <li class="navigation__item"><a href="#tours" class="navigation__link" onclick="closeNav()"><span>03</span> Popular tours</a></li>
+              <li class="navigation__item"><a href="#stories" class="navigation__link" onclick="closeNav()"><span>04</span> Stories</a></li>
+              <li class="navigation__item"><a href="#book" class="navigation__link" onclick="closeNav()"><span>05</span> Book now</a></li>
+            </ul>
+          </nav>
+        </div>
         <header class="header">
           <div class="header__logo-box">
             <img src="./img/logo-white.png" alt="Logo" class="header__logo">
@@ -29,7 +50,7 @@
         </header>
 
         <main>
-          <section class="section-about">
+          <section class="section-about" id="about">
             <div class="u-center-text u-margin-bottom-big">
               <h2 class="heading-secondary">
                 Exciting tours for adventurous people
@@ -60,7 +81,7 @@
             </div>
           </section>
 
-          <section class="section-features">
+          <section class="section-features" id="features">
             <div class="row">
               <div class="col-1-of-4">
                 <div class="feature-box">
@@ -101,7 +122,7 @@
             </div>
           </section>
 
-          <section class="section-tours">
+          <section class="section-tours" id="tours">
             <div class="u-center-text u-margin-bottom-big">
               <h2 class="heading-secondary">
                 Most popular tours
@@ -205,7 +226,7 @@
             </div>
           </section>
 
-          <section class="section-stories">
+          <section class="section-stories" id="stories">
             <div class="bg-video">
               <video class="bg-video__content" autoplay muted loop>
                 <source src="img/video.mp4" type="video/mp4">
@@ -251,7 +272,7 @@
             </div>
           </section>
 
-          <section class="section-book">
+          <section class="section-book" id="book">
            
             <div class="row">
               <div class="book">
@@ -264,11 +285,32 @@
                     </div>
                     <div class="form__group">
                       <input id="name" type="text" class="form__input" placeholder="Full name" required>
-                      <label for="name">Full name</label>
+                      <label for="name" class="form__label">Full name</label>
                     </div>
                     <div class="form__group">
                       <input id="email" type="email" class="form__input" placeholder="Email address" required>
-                      <label for="email">Email address</label>
+                      <label for="email" class="form__label">Email address</label>
+                    </div>
+
+                    <div class="form__group u-margin-bottom-medium">
+                      <div class="form__radio-group">
+                        <input type="radio" class="form__radio-input" id="small" name="size">
+                        <label class="form__radio-label" for="small">
+                          <span class="form__radio-button"></span>
+                          Small tour group
+                        </label>
+                      </div>
+                      <div class="form__radio-group">
+                        <input type="radio" class="form__radio-input" id="large" name="size">
+                        <label class="form__radio-label" for="large">
+                          <span class="form__radio-button"></span>
+                          Large tour group
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="form__group">
+                      <button class="btn btn--green">Next step &rarr;</button>
                     </div>
                   </form>
                 </div>
@@ -276,6 +318,45 @@
             </div>
           </section>
         </main>
+
+        <footer class="footer">
+          <div class="footer__logo-box">
+            <img src="img/logo-green-2x.png" alt="logo" class="footer__logo">
+          </div>
+          <div class="row">
+            <div class="col-1-of-2">
+              <div class="footer__navigation">
+                <ul class="footer__list">
+                  <li class="footer__item"><a href="#" class="footer__link">Company</a></li>
+                  <li class="footer__item"><a href="#" class="footer__link">Contact us</a></li>
+                  <li class="footer__item"><a href="#" class="footer__link">Careers</a></li>
+                  <li class="footer__item"><a href="#" class="footer__link">Privacy Policy</a></li>
+                  <li class="footer__item"><a href="#" class="footer__link">Terms</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-1-of-2">
+              <div class="footer__copyright">
+                &copy; Coded by <a href="#" class="footer__link">Leonardo Gonçalves</a> as part of the Advanced Sass and CSS course. Design credits: <a href="#" class="footer__link">Jonas Schmedtmann</a>.
+              </div>
+            </div>
+          </div>
+        </footer>
+
+        <div class="popup">
+          <div class="popup__content">
+            <div class="popup__left">
+              <img src="img/nat-8.jpg" alt="Tour photo" class="popup__img">
+              <img src="img/nat-9.jpg" alt="Tour photo" class="popup__img">
+            </div>
+            <div class="popup__right">
+              <h2 class="heading-secondary u-margin-bottom-small">Start booking now</h2>
+              <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please read these terms before booking</h3>
+              <p class="popup__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio tempor orci dapibus ultrices in iaculis. Orci nulla pellentesque dignissim enim sit amet venenatis urna. Morbi tristique senectus et netus et malesuada fames. Aliquet bibendum enim facilisis gravida neque. Tellus molestie nunc non blandit massa enim nec dui. Turpis in eu mi bibendum neque egestas congue quisque. Tincidunt dui ut ornare lectus sit. Lacus laoreet non curabitur gravida. Est ullamcorper eget nulla facilisi etiam dignissim. Interdum velit laoreet id donec ultrices tincidunt. Convallis convallis tellus id interdum velit laoreet. Vulputate mi sit amet mauris.</p>
+              <a href="#" class="btn btn--green">Book now</a>
+            </div>
+          </div>
+        </div>
 
 
         <!-- <section class="grid-test">
