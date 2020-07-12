@@ -1,3 +1,14 @@
+/*
+
+0 - 600px:      Phone ($phone)
+600 - 900px:    Tablet portrait ($tab-port)
+900 - 1200px:   Tablet landscape ($tab-land)
+[1200 - 1800px] is where the normal styles aplly
+1800px + :      Big desktop ($big-desktop)
+
+
+1em = 16px
+*/
 *,
 *::after,
 *::before {
@@ -7,6 +18,18 @@
 
 html {
   font-size: 62.5%; }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (max-width: 37.5em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   box-sizing: border-box; }
@@ -116,18 +139,23 @@ body {
   height: 100vh;
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: 4000; }
+  z-index: 4000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s; }
   .popup__content {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0);
     background-color: #fff;
     width: 75%;
     box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
     border-radius: 3px;
     display: table;
-    overflow: hidden; }
+    overflow: hidden;
+    transition: all .3s .2s;
+    opacity: 0; }
   .popup__left {
     width: 33.33333333%;
     display: table-cell; }
@@ -147,6 +175,32 @@ body {
     column-gap: 4rem;
     column-rule: 1px solid #eee;
     hyphens: auto; }
+  .popup:target {
+    opacity: 1;
+    visibility: visible; }
+  .popup:target .popup__content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1); }
+  .popup__close:link, .popup__close:visited {
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+    font-size: 3rem;
+    display: inline-block;
+    text-decoration: none;
+    color: #333;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 100%;
+    background-color: #fff;
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: all .2s; }
+  .popup__close:hover {
+    color: #55c57a; }
+  .popup__close:active {
+    transform: translateY(1rem);
+    box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.2); }
 
 .form__group {
   margin-bottom: 2rem; }
